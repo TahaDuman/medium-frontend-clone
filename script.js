@@ -10,20 +10,18 @@ const sectionOneOptions = {
 const sectionOneObserver = new IntersectionObserver(function(entries, sectionOneObserver){
     entries.forEach(entry => {
         if(entry.isIntersecting == false){
-            header.classList.add("nav-scrolled")
-            parentHeader.classList.remove("bg-warning")
             parentHeader.classList.add("bg-white")
-            headerBtn.classList.remove("bg-black")
+            header.classList.add("bg-white")
             headerBtn.classList.add("bg-success")
-        }
-        if(entry.isIntersecting == true){
-            header.classList.remove("nav-scrolled")
-            parentHeader.classList.add("bg-warning")
+            parentHeader.classList.remove("bg-warning")
+            headerBtn.classList.remove("bg-black")
+        } else{
             parentHeader.classList.remove("bg-white")
-            headerBtn.classList.add("bg-black")
+            header.classList.remove("bg-white")
+            parentHeader.classList.add("bg-warning")
             headerBtn.classList.remove("bg-success")
+            headerBtn.classList.add("bg-black")
         }
-        console.log(entry.isIntersecting)
     })
 }, sectionOneOptions)
 
